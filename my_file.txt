@@ -1,0 +1,39 @@
+# Create a new text file named "my_file.txt" in write mode ('w')
+try:
+    with open("my_file.txt", "w") as file:
+        # Write three lines of text to the file
+        file.write("Hello, this is line 1.\n")
+        file.write("12345 is a number.\n")
+        file.write("This is the third line.\n")
+        print("File 'my_file.txt' created and written successfully.")
+except FileNotFoundError:
+    print("Error: File not found.")
+except PermissionError:
+    print("Error: Permission denied.")
+finally:
+    print("File creation process completed.")
+
+# Read the contents of "my_file.txt" and display them on the console
+try:
+    with open("my_file.txt", "r") as file:
+        content = file.read()
+        print("\nContents of 'my_file.txt':\n")
+        print(content)
+except FileNotFoundError:
+    print("Error: File not found.")
+except PermissionError:
+    print("Error: Permission denied.")
+
+# Append three additional lines of text to the existing content
+try:
+    with open("my_file.txt", "a") as file:
+        file.write("\nThis is an appended line.\n")
+        file.write("Appending more text.\n")
+        file.write("Last appended line.\n")
+        print("\nFile 'my_file.txt' appended successfully.")
+except FileNotFoundError:
+    print("Error: File not found.")
+except PermissionError:
+    print("Error: Permission denied.")
+finally:
+    print("File appending process completed.")
